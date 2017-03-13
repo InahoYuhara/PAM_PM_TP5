@@ -237,5 +237,83 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TP5/AuthorDetailViewController.swift"
+            timestampString = "511082565.079201"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "AuthorDetailViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TP5.AuthorDetailViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; TP5.AuthorDetailViewController"
+                  moduleName = "TP5"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/inaho/Documents/PAM/PM/PAM_PM_TP5/TP5/AuthorDetailViewController.swift"
+                  timestampString = "511084951.343406"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "69">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TP5.AuthorDetailViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; TP5.AuthorDetailViewController"
+                  moduleName = "TP5"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/inaho/Documents/PAM/PM/PAM_PM_TP5/TP5/AuthorDetailViewController.swift"
+                  timestampString = "511084951.345913"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TP5.AuthorDetailViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;TP5.AuthorDetailViewController&gt;"
+                  moduleName = "TP5"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/inaho/Documents/PAM/PM/PAM_PM_TP5/TP5/AuthorDetailViewController.swift"
+                  timestampString = "511084951.348711"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TP5.AuthorDetailViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;TP5.AuthorDetailViewController&gt;"
+                  moduleName = "TP5"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/inaho/Documents/PAM/PM/PAM_PM_TP5/TP5/AuthorDetailViewController.swift"
+                  timestampString = "511084951.350925"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

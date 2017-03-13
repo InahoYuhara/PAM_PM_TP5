@@ -91,12 +91,25 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
         cell.textLabel?.text = "\(author.firstname) \(author.lastname)"
         cell.detailTextLabel?.text = "Books: \(author.booksCount)"
         
+        
         cell.imageView?.image = UIImage(named: "\(author.imageAssetName)")
         
         
         return cell
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "authorDetail_Segue"){
+            if let dest = segue.destination as? AuthorDetailViewController,
+                let cell = sender as? UITableViewCell,
+                let indexPath =  tableView.indexPath(for: cell){
+                let author = fetchedResultsController.object(at: indexPath)
+                dest.author = author
+            }
+        }
+    }
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         //return fetchedResultsController.sections![section].name
         switch section{
