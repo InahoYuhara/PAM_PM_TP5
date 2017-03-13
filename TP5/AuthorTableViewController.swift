@@ -53,8 +53,10 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
                             bookEntity.abstract = bookData["abstract"] as! String
                             bookEntity.isRead = false
                             bookEntity.author = authorEntity
+                            CoreDataStack.instance.saveContext()
                         }
                     }
+                    
 
                 }
                 
@@ -113,8 +115,7 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
             header.textLabel?.textColor = UIColor.blue
         }
         else{
-            header.textLabel?.textColor = UIColor.purple
-        }
+            header.textLabel?.textColor = UIColor.magenta        }
     }
 
 

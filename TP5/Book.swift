@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class Book: NSManagedObject {
-    static let ENTITY_NAME: String = "Book"
+    
     
     @NSManaged var title: String
     @NSManaged var yearPublished: Int16
@@ -19,5 +19,5 @@ class Book: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var author: Author
     
-    
+    static let ENTITY_NAME: String = "Book"
 }
