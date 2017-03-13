@@ -18,18 +18,36 @@ class BookDetailViewController: UIViewController, NSFetchedResultsControllerDele
     @IBOutlet weak var BookDesc: UITextView!
     var book: Book!
     
+    private var fetchedResultsController: NSFetchedResultsController<Book>!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         TitleLabel.text = book.title
-        //TitleLabel.font = TitleLabel.font.withSize(10)
         SubTitleLabel.text = "\(book.yearPublished), \(book.author.firstname) \(book.author.lastname)"
         SubTitleLabel.font = SubTitleLabel.font.withSize(13)
         
         BookDesc.text = book.abstract
         ReadNotRead.setTitle("Lu", forSegmentAt: 0)
         ReadNotRead.setTitle("Non lu", forSegmentAt: 1)
+        
+        do{
+            
+            let context = CoreDataStack.instance.persistentContainer.viewContext
+            let request = NSFetchRequest<Book>(entityName: Book.ENTITY_NAME)
+            request.sortDescriptors = [NSSortDescriptor(key: "title",ascending: true)]
+            //request.predicate = NSPredicate(format: "book == %@", self.book)
+            
+            fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
+                                                                  managedObjectContext: context,
+                                                                  sectionNameKeyPath: nil, cacheName: nil)
+            fetchedResultsController.delegate = self
+            try fetchedResultsController.performFetch()
+            
+        }catch{}
+
+        
         
         if(book.isRead == true){
             ReadNotRead.selectedSegmentIndex = 0
@@ -49,6 +67,10 @@ class BookDetailViewController: UIViewController, NSFetchedResultsControllerDele
         }
         
     }
-    
-    
+   
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        if(book.isRead == true){
+            ReadNotRead.selectedSegmentIndex = 0
+        }else{ReadNotRead.selectedSegmentIndex = 1}
+    }
 }

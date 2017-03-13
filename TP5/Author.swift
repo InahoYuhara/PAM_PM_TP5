@@ -16,12 +16,12 @@ class Author: NSManagedObject{
     @NSManaged var gender: Int16
     @NSManaged var biography: String
     @NSManaged var imageAssetName: String
-    @NSManaged var books: Set<Book>
+    @NSManaged var book: Set<Book>
     
     static let ENTITY_NAME: String = "Author"
     
     var booksCount: Int{
-        return books.count
+        return book.count
     }
     
 }

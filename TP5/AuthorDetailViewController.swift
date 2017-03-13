@@ -34,7 +34,7 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
             let context = CoreDataStack.instance.persistentContainer.viewContext
             let request = NSFetchRequest<Book>(entityName: Book.ENTITY_NAME)
             request.sortDescriptors = [NSSortDescriptor(key: "title",ascending: true)]
-            request.predicate = NSPredicate(format: "author.firstname == %@", author.firstname)
+            request.predicate = NSPredicate(format: "author == %@", author)
           
             fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
                                                                   managedObjectContext: context,
@@ -73,11 +73,40 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         if(book.isRead == true){
             cell.imageView?.image = UIImage(named: "glasses")
-        }
+        }else{cell.imageView?.image = nil}
         
         return cell
     }
-    
+     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let member = self.fetchedResultsController.object(at: indexPath)
+        
+        if(member.isRead == false){
+            let BookIsRead = UITableViewRowAction(style: .normal, title: "LU") { (_, indexPath) in
+                _ = CoreDataStack.instance.persistentContainer.viewContext
+                member.isRead = true
+                CoreDataStack.instance.saveContext()
+                tableView.endEditing(true)
+            }
+            BookIsRead.backgroundColor = UIColor.green
+            return[BookIsRead]
+            
+        }else{
+            let BookNotRead = UITableViewRowAction(style: .normal, title: "A LIRE") { (_, indexPath) in
+                _ = CoreDataStack.instance.persistentContainer.viewContext
+                member.isRead = false
+                CoreDataStack.instance.saveContext()
+                tableView.endEditing(true)
+            }
+            BookNotRead.backgroundColor = UIColor.red
+            return[BookNotRead]
+            
+        }
+    }
+
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         print("HER")
         self.BookTableView.reloadData()
