@@ -183,10 +183,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="df2-jN-laW">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="df2-jN-laW">
                                 <rect key="frame" x="16" y="208" width="343" height="209"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -196,7 +195,7 @@
                                     <constraint firstAttribute="width" secondItem="jsh-Ac-SRn" secondAttribute="height" multiplier="1:1" id="kY1-Gb-zlF"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XK6-py-bO5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XK6-py-bO5">
                                 <rect key="frame" x="16" y="348" width="343" height="270"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -223,6 +222,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jsh-Ac-SRn" firstAttribute="leading" secondItem="QvE-52-8oP" secondAttribute="leadingMargin" id="04X-OE-qWv"/>
+                            <constraint firstItem="XK6-py-bO5" firstAttribute="height" secondItem="QvE-52-8oP" secondAttribute="height" multiplier="0.3" id="BNB-Ws-WTB"/>
                             <constraint firstItem="XK6-py-bO5" firstAttribute="trailing" secondItem="QvE-52-8oP" secondAttribute="trailingMargin" id="Ouv-9c-N4a"/>
                             <constraint firstItem="2MB-sw-lrA" firstAttribute="top" secondItem="XK6-py-bO5" secondAttribute="bottom" id="Pyb-Fx-DYh"/>
                             <constraint firstItem="df2-jN-laW" firstAttribute="trailing" secondItem="QvE-52-8oP" secondAttribute="trailingMargin" id="QC2-ab-EOY"/>
@@ -230,10 +230,9 @@
                             <constraint firstItem="df2-jN-laW" firstAttribute="top" secondItem="jsh-Ac-SRn" secondAttribute="bottom" constant="8" id="UW9-Qf-FBG"/>
                             <constraint firstItem="vXr-W4-u02" firstAttribute="centerY" secondItem="jsh-Ac-SRn" secondAttribute="centerY" id="aQS-SG-4wu"/>
                             <constraint firstItem="df2-jN-laW" firstAttribute="leading" secondItem="QvE-52-8oP" secondAttribute="leadingMargin" id="dAL-sK-p3w"/>
-                            <constraint firstItem="XK6-py-bO5" firstAttribute="top" secondItem="df2-jN-laW" secondAttribute="bottom" constant="8" id="dPv-r5-FW1"/>
                             <constraint firstItem="jsh-Ac-SRn" firstAttribute="width" secondItem="QvE-52-8oP" secondAttribute="width" multiplier="0.5" id="e8q-Rs-wSH"/>
-                            <constraint firstItem="XK6-py-bO5" firstAttribute="top" secondItem="df2-jN-laW" secondAttribute="bottom" constant="-69" id="eYP-VP-GvK"/>
                             <constraint firstItem="jsh-Ac-SRn" firstAttribute="top" secondItem="KjZ-rV-nQ6" secondAttribute="bottom" constant="8" id="kAQ-OI-c50"/>
+                            <constraint firstItem="XK6-py-bO5" firstAttribute="top" secondItem="df2-jN-laW" secondAttribute="bottom" constant="8" id="le3-LM-fMK"/>
                             <constraint firstItem="XK6-py-bO5" firstAttribute="leading" secondItem="QvE-52-8oP" secondAttribute="leadingMargin" id="nE2-bb-BXv"/>
                         </constraints>
                     </view>

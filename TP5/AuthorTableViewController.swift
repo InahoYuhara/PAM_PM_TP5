@@ -17,6 +17,7 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        CoreDataStack.instance.insertInitialData()
         
         let context = CoreDataStack.instance.persistentContainer.viewContext
         let request = NSFetchRequest<Author>(entityName: Author.ENTITY_NAME)
@@ -31,7 +32,7 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
             let results =  try context.fetch(request)
             if(results.count == 0)
             {
-                
+                /*
                 if let path = Bundle.main.path(forResource: "InitialData", ofType: "plist"),
                     let data = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
                 
@@ -58,7 +59,7 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
                     }
                     
 
-                }
+                }*/
                 
             }
             

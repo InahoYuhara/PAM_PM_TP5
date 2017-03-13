@@ -20,7 +20,6 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var AuthorDetailLabel: UILabel!
     @IBOutlet weak var AuthorDetailBio: UITextView!
     
-    @IBOutlet weak var Book_cell: UITableViewCell!
     @IBOutlet weak var BookTableView: UITableView!
     
     override func viewDidLoad() {
@@ -35,7 +34,7 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
             let context = CoreDataStack.instance.persistentContainer.viewContext
             let request = NSFetchRequest<Book>(entityName: Book.ENTITY_NAME)
             request.sortDescriptors = [NSSortDescriptor(key: "title",ascending: true)]
-           
+            request.predicate = NSPredicate(format: "author.firstname == %@", author.firstname)
           
             fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
                                                                   managedObjectContext: context,
@@ -71,6 +70,11 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         let book: Book = fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = "\(book.title): "
+        
+        if(book.isRead == true){
+            cell.imageView?.image = UIImage(named: "glasses")
+        }
+        
         return cell
     }
     
