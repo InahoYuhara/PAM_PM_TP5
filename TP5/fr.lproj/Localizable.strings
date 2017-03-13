@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  TP5
+
+  Created by Antoine Hébert on 2017-03-13.
+  Copyright © 2017 Antoine Hébert. All rights reserved.
+*/
+
+"author_genderM" = "Homme";
+"author_genderW" = "Femme";
+
+"segmentRead" = "Lu";
+"segmentToRead" = "À lire";
+
+"editRowRead" = "Lu";
+"editRowToRead" = "À lire";
+
+"book" = "Livre(s)";

@@ -50,22 +50,18 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     func numberOfSections(in tabkeView: UITableView) -> Int{
-        print("numberofsection")
         return fetchedResultsController.sections?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController.sections{
-            print("if let if")
             return sections[section].numberOfObjects
         }else {
-            print("if let else")
             return fetchedResultsController.fetchedObjects!.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("CellforRow")
         let cell = tableView.dequeueReusableCell(withIdentifier: "authorDetailBook_Cell", for: indexPath)
         
         let book: Book = fetchedResultsController.object(at: indexPath)
@@ -85,7 +81,7 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
         let member = self.fetchedResultsController.object(at: indexPath)
         
         if(member.isRead == false){
-            let BookIsRead = UITableViewRowAction(style: .normal, title: "LU") { (_, indexPath) in
+            let BookIsRead = UITableViewRowAction(style: .normal, title: "\(NSLocalizedString("editRowRead", comment: ""))") { (_, indexPath) in
                 _ = CoreDataStack.instance.persistentContainer.viewContext
                 member.isRead = true
                 CoreDataStack.instance.saveContext()
@@ -95,7 +91,7 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
             return[BookIsRead]
             
         }else{
-            let BookNotRead = UITableViewRowAction(style: .normal, title: "A LIRE") { (_, indexPath) in
+            let BookNotRead = UITableViewRowAction(style: .normal, title: "\(NSLocalizedString("editRowToRead", comment: ""))") { (_, indexPath) in
                 _ = CoreDataStack.instance.persistentContainer.viewContext
                 member.isRead = false
                 CoreDataStack.instance.saveContext()
@@ -108,7 +104,6 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("HER")
         self.BookTableView.reloadData()
     }
     
