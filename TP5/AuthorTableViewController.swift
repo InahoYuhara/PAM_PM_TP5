@@ -17,6 +17,7 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        CoreDataStack.instance.insertInitialData()
         
         let context = CoreDataStack.instance.persistentContainer.viewContext
         let request = NSFetchRequest<Author>(entityName: Author.ENTITY_NAME)
@@ -31,7 +32,7 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
             let results =  try context.fetch(request)
             if(results.count == 0)
             {
-                
+                /*
                 if let path = Bundle.main.path(forResource: "InitialData", ofType: "plist"),
                     let data = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
                 
@@ -58,7 +59,7 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
                     }
                     
 
-                }
+                }*/
                 
             }
             
@@ -91,12 +92,25 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
         cell.textLabel?.text = "\(author.firstname) \(author.lastname)"
         cell.detailTextLabel?.text = "Books: \(author.booksCount)"
         
+        
         cell.imageView?.image = UIImage(named: "\(author.imageAssetName)")
         
         
         return cell
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "authorDetail_Segue"){
+            if let dest = segue.destination as? AuthorDetailViewController,
+                let cell = sender as? UITableViewCell,
+                let indexPath =  tableView.indexPath(for: cell){
+                let author = fetchedResultsController.object(at: indexPath)
+                dest.author = author
+            }
+        }
+    }
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         //return fetchedResultsController.sections![section].name
         switch section{
