@@ -29,8 +29,8 @@ class BookDetailViewController: UIViewController, NSFetchedResultsControllerDele
         SubTitleLabel.font = SubTitleLabel.font.withSize(13)
         
         BookDesc.text = book.abstract
-        ReadNotRead.setTitle("Lu", forSegmentAt: 0)
-        ReadNotRead.setTitle("Non lu", forSegmentAt: 1)
+        ReadNotRead.setTitle("\(NSLocalizedString("segmentRead", comment: ""))", forSegmentAt: 0)
+        ReadNotRead.setTitle("\(NSLocalizedString("segmentToRead", comment: ""))", forSegmentAt: 1)
         
         do{
             

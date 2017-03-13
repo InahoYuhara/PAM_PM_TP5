@@ -90,7 +90,7 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
         let cell = tableView.dequeueReusableCell(withIdentifier: "author_cell", for: indexPath)
         let author = fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = "\(author.firstname) \(author.lastname)"
-        cell.detailTextLabel?.text = "Books: \(author.booksCount)"
+        cell.detailTextLabel?.text = "\(NSLocalizedString("book", comment: "")) : \(author.booksCount)"
         
         
         cell.imageView?.image = UIImage(named: "\(author.imageAssetName)")
@@ -115,9 +115,9 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
         //return fetchedResultsController.sections![section].name
         switch section{
         case 0:
-            return "MAN"
+            return NSLocalizedString("author_genderM", comment: "")
         case 1:
-            return "WOMAN"
+            return NSLocalizedString("author_genderW", comment: "")
         default:
             return "nothing"
         }

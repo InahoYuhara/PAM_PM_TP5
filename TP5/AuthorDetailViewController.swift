@@ -14,12 +14,11 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
     
         var author: Author!
         private var fetchedResultsController: NSFetchedResultsController<Book>!
-
     
+    @IBOutlet weak var AuthorGenderIcon: UIImageView!
     @IBOutlet weak var AuthorDetailPortrait: UIImageView!
     @IBOutlet weak var AuthorDetailLabel: UILabel!
     @IBOutlet weak var AuthorDetailBio: UITextView!
-    
     @IBOutlet weak var BookTableView: UITableView!
     
     override func viewDidLoad() {
@@ -28,6 +27,11 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
         AuthorDetailPortrait.image = UIImage(named: "\(author.imageAssetName)")
         AuthorDetailLabel.text = "\(author.firstname) \(author.lastname)"
         AuthorDetailBio.text = "\(author.biography)"
+        if(author.gender == 0){
+            AuthorGenderIcon.image = UIImage(named: "male")
+        }else{
+            AuthorGenderIcon.image = UIImage(named: "female")
+        }
         
         do{
         
@@ -50,22 +54,18 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     func numberOfSections(in tabkeView: UITableView) -> Int{
-        print("numberofsection")
         return fetchedResultsController.sections?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController.sections{
-            print("if let if")
             return sections[section].numberOfObjects
         }else {
-            print("if let else")
             return fetchedResultsController.fetchedObjects!.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("CellforRow")
         let cell = tableView.dequeueReusableCell(withIdentifier: "authorDetailBook_Cell", for: indexPath)
         
         let book: Book = fetchedResultsController.object(at: indexPath)
@@ -85,7 +85,7 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
         let member = self.fetchedResultsController.object(at: indexPath)
         
         if(member.isRead == false){
-            let BookIsRead = UITableViewRowAction(style: .normal, title: "LU") { (_, indexPath) in
+            let BookIsRead = UITableViewRowAction(style: .normal, title: "\(NSLocalizedString("editRowRead", comment: ""))") { (_, indexPath) in
                 _ = CoreDataStack.instance.persistentContainer.viewContext
                 member.isRead = true
                 CoreDataStack.instance.saveContext()
@@ -95,7 +95,7 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
             return[BookIsRead]
             
         }else{
-            let BookNotRead = UITableViewRowAction(style: .normal, title: "A LIRE") { (_, indexPath) in
+            let BookNotRead = UITableViewRowAction(style: .normal, title: "\(NSLocalizedString("editRowToRead", comment: ""))") { (_, indexPath) in
                 _ = CoreDataStack.instance.persistentContainer.viewContext
                 member.isRead = false
                 CoreDataStack.instance.saveContext()
@@ -108,7 +108,6 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("HER")
         self.BookTableView.reloadData()
     }
     

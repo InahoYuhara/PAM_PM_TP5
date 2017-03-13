@@ -72,9 +72,9 @@ class BookTableViewController: UITableViewController, NSFetchedResultsController
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
             case 0:
-            return "A LIRE"
+            return "\(NSLocalizedString("editRowToRead", comment: ""))"
             case 1:
-            return "LUS"
+            return "\(NSLocalizedString("editRowRead", comment: ""))"
             default:
             return "nothing"
         }
@@ -87,7 +87,7 @@ class BookTableViewController: UITableViewController, NSFetchedResultsController
          let member = self.fetchedResultsController.object(at: indexPath)
 
         if(member.isRead == false){
-            let BookIsRead = UITableViewRowAction(style: .normal, title: "LU") { (_, indexPath) in
+            let BookIsRead = UITableViewRowAction(style: .normal, title: "\(NSLocalizedString("editRowRead", comment: ""))") { (_, indexPath) in
                        _ = CoreDataStack.instance.persistentContainer.viewContext
             member.isRead = true
             CoreDataStack.instance.saveContext()
@@ -97,7 +97,7 @@ class BookTableViewController: UITableViewController, NSFetchedResultsController
         return[BookIsRead]
 
         }else{
-            let BookNotRead = UITableViewRowAction(style: .normal, title: "A LIRE") { (_, indexPath) in
+            let BookNotRead = UITableViewRowAction(style: .normal, title: "\(NSLocalizedString("editRowToRead", comment: ""))") { (_, indexPath) in
                 _ = CoreDataStack.instance.persistentContainer.viewContext
                 member.isRead = false
                 CoreDataStack.instance.saveContext()
