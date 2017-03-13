@@ -25,6 +25,8 @@ class BookTableViewController: UITableViewController, NSFetchedResultsController
                                                               sectionNameKeyPath: "isRead", cacheName: nil)
         do{
             
+            fetchedResultsController.delegate = self
+
             //let results =  try context.fetch(request)
             try fetchedResultsController.performFetch()
 
@@ -70,7 +72,40 @@ class BookTableViewController: UITableViewController, NSFetchedResultsController
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+         let member = self.fetchedResultsController.object(at: indexPath)
 
+        if(member.isRead == false){
+            let BookIsRead = UITableViewRowAction(style: .normal, title: "LU") { (_, indexPath) in
+                       _ = CoreDataStack.instance.persistentContainer.viewContext
+            member.isRead = true
+            CoreDataStack.instance.saveContext()
+            tableView.endEditing(true)
+        }
+        BookIsRead.backgroundColor = UIColor.green
+        return[BookIsRead]
+
+        }else{
+            let BookNotRead = UITableViewRowAction(style: .normal, title: "A LIRE") { (_, indexPath) in
+                _ = CoreDataStack.instance.persistentContainer.viewContext
+                member.isRead = false
+                CoreDataStack.instance.saveContext()
+                tableView.endEditing(true)
+            }
+            BookNotRead.backgroundColor = UIColor.red
+            return[BookNotRead]
+        
+        }
+    }
+
+//
+//NSfetchedResultsControllerDelegate
+//
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.reloadData()
+    }
     
 
     
