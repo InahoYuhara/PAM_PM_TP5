@@ -70,6 +70,7 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         let book: Book = fetchedResultsController.object(at: indexPath)
         cell.textLabel?.text = "\(book.title): "
+        cell.detailTextLabel?.text = "\(book.yearPublished)"
         
         if(book.isRead == true){
             cell.imageView?.image = UIImage(named: "glasses")
