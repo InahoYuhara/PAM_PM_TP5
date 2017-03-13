@@ -43,7 +43,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Esk-So-KBw" kind="show" id="XtX-y1-St6"/>
+                                    <segue destination="Esk-So-KBw" kind="show" identifier="bookDetail_Segue" id="XtX-y1-St6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="1732" y="347"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Detail View Controller-->
         <scene sceneID="hSm-fr-gjC">
             <objects>
-                <viewController id="Esk-So-KBw" sceneMemberID="viewController">
+                <viewController id="Esk-So-KBw" customClass="BookDetailViewController" customModule="TP5" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A0F-UM-IIa"/>
                         <viewControllerLayoutGuide type="bottom" id="cUr-0M-Dpq"/>
@@ -78,24 +78,44 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rsS-Q6-Rfk">
-                                <rect key="frame" x="16" y="105" width="343" height="513"/>
+                                <rect key="frame" x="16" y="187" width="343" height="379"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GCn-up-shp">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GCn-up-shp">
                                 <rect key="frame" x="16" y="582" width="343" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <connections>
+                                    <action selector="IndexChanged:" destination="Esk-So-KBw" eventType="valueChanged" id="GDW-qB-RYX"/>
+                                </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Er-Sg-lgI">
+                                <rect key="frame" x="16" y="121" width="343" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cUr-0M-Dpq" firstAttribute="top" secondItem="GCn-up-shp" secondAttribute="bottom" constant="8" id="Hp9-dt-oAp"/>
+                            <constraint firstItem="GCn-up-shp" firstAttribute="leading" secondItem="75M-oO-dhT" secondAttribute="leadingMargin" id="HvQ-X6-tV1"/>
+                            <constraint firstItem="GCn-up-shp" firstAttribute="trailing" secondItem="75M-oO-dhT" secondAttribute="trailingMargin" id="YSE-Jm-lOs"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="BookDesc" destination="rsS-Q6-Rfk" id="LrX-ra-mtU"/>
+                        <outlet property="ReadNotRead" destination="GCn-up-shp" id="NKY-6z-zOT"/>
+                        <outlet property="SubTitleLabel" destination="4Er-Sg-lgI" id="kvE-s3-mIZ"/>
+                        <outlet property="TitleLabel" destination="tIY-kF-4JE" id="1tJ-wQ-Fhq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lN-gO-o4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

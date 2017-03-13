@@ -59,6 +59,16 @@ class BookTableViewController: UITableViewController, NSFetchedResultsController
         
         return cell
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "bookDetail_Segue"){
+            if let dest = segue.destination as? BookDetailViewController,
+                let cell = sender as? UITableViewCell,
+                let indexPath =  tableView.indexPath(for: cell){
+                let book = fetchedResultsController.object(at: indexPath)
+                dest.book = book
+            }
+        }
+    }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
             case 0:

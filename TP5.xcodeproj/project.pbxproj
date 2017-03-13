@@ -11,6 +11,7 @@
 		CA211CCB1E75EF2D006794B9 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA211CCA1E75EF2D006794B9 /* Book.swift */; };
 		CA211CCD1E75F1D6006794B9 /* AuthorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA211CCC1E75F1D6006794B9 /* AuthorTableViewController.swift */; };
 		CA211CCF1E75F1E1006794B9 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA211CCE1E75F1E1006794B9 /* BookTableViewController.swift */; };
+		CA56C2881E76741F003604AA /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56C2871E76741F003604AA /* BookDetailViewController.swift */; };
 		CAB466441E7337D10047B4BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB466431E7337D10047B4BB /* AppDelegate.swift */; };
 		CAB466491E7337D10047B4BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB466471E7337D10047B4BB /* Main.storyboard */; };
 		CAB4664C1E7337D10047B4BB /* TP5.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAB4664A1E7337D10047B4BB /* TP5.xcdatamodeld */; };
@@ -25,6 +26,7 @@
 		CA211CCA1E75EF2D006794B9 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		CA211CCC1E75F1D6006794B9 /* AuthorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorTableViewController.swift; sourceTree = "<group>"; };
 		CA211CCE1E75F1E1006794B9 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
+		CA56C2871E76741F003604AA /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		CAB466401E7337D10047B4BB /* TP5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TP5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB466431E7337D10047B4BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAB466481E7337D10047B4BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA56C2891E767424003604AA /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				CA56C2871E76741F003604AA /* BookDetailViewController.swift */,
+				CA211CCE1E75F1E1006794B9 /* BookTableViewController.swift */,
+			);
+			name = Book;
+			sourceTree = "<group>";
+		};
+		CA56C28A1E76742E003604AA /* Author */ = {
+			isa = PBXGroup;
+			children = (
+				CA211CCC1E75F1D6006794B9 /* AuthorTableViewController.swift */,
+			);
+			name = Author;
+			sourceTree = "<group>";
+		};
 		CA841D471E73B66400D59F1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,8 +89,8 @@
 		CA841D491E73B66B00D59F1D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CA211CCC1E75F1D6006794B9 /* AuthorTableViewController.swift */,
-				CA211CCE1E75F1E1006794B9 /* BookTableViewController.swift */,
+				CA56C28A1E76742E003604AA /* Author */,
+				CA56C2891E767424003604AA /* Book */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -193,6 +212,7 @@
 				CAB466441E7337D10047B4BB /* AppDelegate.swift in Sources */,
 				CA211CCD1E75F1D6006794B9 /* AuthorTableViewController.swift in Sources */,
 				CAB466591E73447F0047B4BB /* CoreDataStack.swift in Sources */,
+				CA56C2881E76741F003604AA /* BookDetailViewController.swift in Sources */,
 				CA211CC91E75EF26006794B9 /* Author.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
