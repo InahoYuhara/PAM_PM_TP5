@@ -101,7 +101,6 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
             return "WOMAN"
         default:
             return "nothing"
-            
         }
     }
 

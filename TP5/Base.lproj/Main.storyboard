@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tw7-kL-3rN" id="mBG-Ue-taG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -98,11 +98,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wjm-vm-vp4" id="tU0-nl-50d">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xFs-F3-pte">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -156,7 +156,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Jo-Z1-JOh" id="0Ik-LP-RdE">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -205,13 +205,14 @@
         <scene sceneID="xNb-O6-NFP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LDd-wd-F46" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Authors" id="PCf-dH-dbh">
+                    <tabBarItem key="tabBarItem" title="Authors" selectedImage="Authors" id="PCf-dH-dbh">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jsf-iL-bEy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Jsf-iL-bEy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.56607812643051147" green="0.14590340852737427" blue="0.99668437242507935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -226,11 +227,12 @@
         <scene sceneID="ONN-gj-8On">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Djj-0N-yPO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Reading List" id="67D-nh-896"/>
+                    <tabBarItem key="tabBarItem" title="Reading List" selectedImage="ReadingList" id="67D-nh-896"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ARF-Ws-XPr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ARF-Ws-XPr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.56607812639999999" green="0.1459034085" blue="0.99668437239999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -242,4 +244,8 @@
             <point key="canvasLocation" x="792.79999999999995" y="346.77661169415296"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Authors" width="25" height="25"/>
+        <image name="ReadingList" width="25" height="25"/>
+    </resources>
 </document>
