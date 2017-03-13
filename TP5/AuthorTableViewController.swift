@@ -20,7 +20,8 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
         
         let context = CoreDataStack.instance.persistentContainer.viewContext
         let request = NSFetchRequest<Author>(entityName: Author.ENTITY_NAME)
-        request.sortDescriptors = [NSSortDescriptor(key: "firstname", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "firstname", ascending: true),
+                                   NSSortDescriptor(key:"lastname", ascending: true)]
                                    //NSSortDescriptor(key: "gender", ascending: true)]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
                                                               managedObjectContext: context,
@@ -88,6 +89,8 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
         cell.textLabel?.text = "\(author.firstname) \(author.lastname)"
         cell.detailTextLabel?.text = "Books: \(author.booksCount)"
         
+        cell.imageView?.image = UIImage(named: "\(author.imageAssetName)")
+        
         
         return cell
         
@@ -101,6 +104,16 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
             return "WOMAN"
         default:
             return "nothing"
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        if(section == 0){
+            header.textLabel?.textColor = UIColor.blue
+        }
+        else{
+            header.textLabel?.textColor = UIColor.purple
         }
     }
 
