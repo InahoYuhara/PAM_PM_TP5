@@ -191,6 +191,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.56607812639999999" green="0.1459034085" blue="0.99668437239999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="LDd-wd-F46" kind="relationship" relationship="viewControllers" id="FNn-lT-jhf"/>
@@ -205,14 +206,18 @@
         <scene sceneID="xNb-O6-NFP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LDd-wd-F46" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Authors" selectedImage="Authors" id="PCf-dH-dbh">
+                    <tabBarItem key="tabBarItem" title="Authors" image="Authors" selectedImage="Authors" id="PCf-dH-dbh">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Jsf-iL-bEy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.56607812643051147" green="0.14590340852737427" blue="0.99668437242507935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -227,12 +232,16 @@
         <scene sceneID="ONN-gj-8On">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Djj-0N-yPO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Reading List" selectedImage="ReadingList" id="67D-nh-896"/>
+                    <tabBarItem key="tabBarItem" title="Reading List" image="ReadingList" selectedImage="ReadingList" id="67D-nh-896"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ARF-Ws-XPr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.56607812639999999" green="0.1459034085" blue="0.99668437239999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
