@@ -88,6 +88,7 @@
 		CA841D481E73B66800D59F1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CAC347931E772AA400F992FE /* Localizable.strings */,
 				CAB466471E7337D10047B4BB /* Main.storyboard */,
 				CAB4664F1E7337D10047B4BB /* LaunchScreen.storyboard */,
 			);
@@ -137,7 +138,6 @@
 				CA841D481E73B66800D59F1D /* View */,
 				CA841D491E73B66B00D59F1D /* Controller */,
 				CA841D4A1E73B6BA00D59F1D /* Supporting Files */,
-				CAC347931E772AA400F992FE /* Localizable.strings */,
 			);
 			path = TP5;
 			sourceTree = "<group>";

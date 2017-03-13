@@ -210,11 +210,11 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q4M-go-zg5" id="kpM-Gb-StW">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mMQ-T2-cgg">
-                                                    <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="313" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -225,6 +225,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MhQ-UI-rMn">
+                                <rect key="frame" x="138" y="193" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="fx0-5X-VyH"/>
+                                    <constraint firstAttribute="width" secondItem="MhQ-UI-rMn" secondAttribute="height" multiplier="1:1" id="iiw-13-Hyb"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -234,6 +241,7 @@
                             <constraint firstItem="2MB-sw-lrA" firstAttribute="top" secondItem="XK6-py-bO5" secondAttribute="bottom" id="Pyb-Fx-DYh"/>
                             <constraint firstItem="df2-jN-laW" firstAttribute="trailing" secondItem="QvE-52-8oP" secondAttribute="trailingMargin" id="QC2-ab-EOY"/>
                             <constraint firstItem="vXr-W4-u02" firstAttribute="leading" secondItem="jsh-Ac-SRn" secondAttribute="trailing" constant="8" id="QE9-2V-C1h"/>
+                            <constraint firstItem="MhQ-UI-rMn" firstAttribute="bottom" secondItem="jsh-Ac-SRn" secondAttribute="bottom" id="SAs-pN-ocS"/>
                             <constraint firstItem="df2-jN-laW" firstAttribute="top" secondItem="jsh-Ac-SRn" secondAttribute="bottom" constant="8" id="UW9-Qf-FBG"/>
                             <constraint firstItem="vXr-W4-u02" firstAttribute="centerY" secondItem="jsh-Ac-SRn" secondAttribute="centerY" id="aQS-SG-4wu"/>
                             <constraint firstItem="df2-jN-laW" firstAttribute="leading" secondItem="QvE-52-8oP" secondAttribute="leadingMargin" id="dAL-sK-p3w"/>
@@ -241,12 +249,14 @@
                             <constraint firstItem="jsh-Ac-SRn" firstAttribute="top" secondItem="KjZ-rV-nQ6" secondAttribute="bottom" constant="8" id="kAQ-OI-c50"/>
                             <constraint firstItem="XK6-py-bO5" firstAttribute="top" secondItem="df2-jN-laW" secondAttribute="bottom" constant="8" id="le3-LM-fMK"/>
                             <constraint firstItem="XK6-py-bO5" firstAttribute="leading" secondItem="QvE-52-8oP" secondAttribute="leadingMargin" id="nE2-bb-BXv"/>
+                            <constraint firstItem="MhQ-UI-rMn" firstAttribute="trailing" secondItem="jsh-Ac-SRn" secondAttribute="trailing" id="yw4-wp-Dw5"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="AuthorDetailBio" destination="df2-jN-laW" id="b9K-bI-wIL"/>
                         <outlet property="AuthorDetailLabel" destination="vXr-W4-u02" id="wBD-gV-NAP"/>
                         <outlet property="AuthorDetailPortrait" destination="jsh-Ac-SRn" id="90f-Xw-vXy"/>
+                        <outlet property="AuthorGenderIcon" destination="MhQ-UI-rMn" id="GVG-Og-hHg"/>
                         <outlet property="BookTableView" destination="XK6-py-bO5" id="p5F-KC-PAM"/>
                     </connections>
                 </viewController>

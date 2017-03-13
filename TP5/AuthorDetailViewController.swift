@@ -14,12 +14,11 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
     
         var author: Author!
         private var fetchedResultsController: NSFetchedResultsController<Book>!
-
     
+    @IBOutlet weak var AuthorGenderIcon: UIImageView!
     @IBOutlet weak var AuthorDetailPortrait: UIImageView!
     @IBOutlet weak var AuthorDetailLabel: UILabel!
     @IBOutlet weak var AuthorDetailBio: UITextView!
-    
     @IBOutlet weak var BookTableView: UITableView!
     
     override func viewDidLoad() {
@@ -28,6 +27,11 @@ class AuthorDetailViewController: UIViewController, UITableViewDelegate, UITable
         AuthorDetailPortrait.image = UIImage(named: "\(author.imageAssetName)")
         AuthorDetailLabel.text = "\(author.firstname) \(author.lastname)"
         AuthorDetailBio.text = "\(author.biography)"
+        if(author.gender == 0){
+            AuthorGenderIcon.image = UIImage(named: "male")
+        }else{
+            AuthorGenderIcon.image = UIImage(named: "female")
+        }
         
         do{
         
