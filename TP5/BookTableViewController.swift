@@ -7,3 +7,71 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
+
+class BookTableViewController: UITableViewController, NSFetchedResultsControllerDelegate{
+    
+    private var fetchedResultsController: NSFetchedResultsController<Book>!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let context = CoreDataStack.instance.persistentContainer.viewContext
+        let request = NSFetchRequest<Book>(entityName: Book.ENTITY_NAME)
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
+                                                              managedObjectContext: context,
+                                                              sectionNameKeyPath: "isRead", cacheName: nil)
+        do{
+            
+            //let results =  try context.fetch(request)
+            try fetchedResultsController.performFetch()
+
+            
+        }catch{}
+        
+        
+    }
+    
+    override func numberOfSections(in tabkeView: UITableView) -> Int{
+        return fetchedResultsController.sections?.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sections = fetchedResultsController.sections{
+            return sections[section].numberOfObjects
+        }else {
+            return fetchedResultsController.fetchedObjects!.count
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "book_cell", for: indexPath)
+        let book = fetchedResultsController.object(at: indexPath)
+        let author = fetchedResultsController.object(at: indexPath).author
+        cell.textLabel?.text = "\(book.title)"
+        cell.detailTextLabel?.text = "\(author.lastname), \(author.firstname) (\(book.yearPublished))"
+        
+       // cell.imageView?.image = UIImage(named: "\(author.imageAssetName)"
+        
+        return cell
+    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section{
+            case 0:
+            return "A LIRE"
+            case 1:
+            return "LUS"
+            default:
+            return "nothing"
+        }
+    }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    
+
+    
+}

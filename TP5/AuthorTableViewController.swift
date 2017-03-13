@@ -20,7 +20,8 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
         
         let context = CoreDataStack.instance.persistentContainer.viewContext
         let request = NSFetchRequest<Author>(entityName: Author.ENTITY_NAME)
-        request.sortDescriptors = [NSSortDescriptor(key: "firstname", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "firstname", ascending: true),
+                                   NSSortDescriptor(key:"lastname", ascending: true)]
                                    //NSSortDescriptor(key: "gender", ascending: true)]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
                                                               managedObjectContext: context,
@@ -52,8 +53,10 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
                             bookEntity.abstract = bookData["abstract"] as! String
                             bookEntity.isRead = false
                             bookEntity.author = authorEntity
+                            CoreDataStack.instance.saveContext()
                         }
                     }
+                    
 
                 }
                 
@@ -85,8 +88,10 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "author_cell", for: indexPath)
         let author = fetchedResultsController.object(at: indexPath)
-        cell.textLabel?.text = author.firstname
+        cell.textLabel?.text = "\(author.firstname) \(author.lastname)"
         cell.detailTextLabel?.text = "Books: \(author.booksCount)"
+        
+        cell.imageView?.image = UIImage(named: "\(author.imageAssetName)")
         
         
         return cell
@@ -102,6 +107,15 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
         default:
             return "nothing"
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        if(section == 0){
+            header.textLabel?.textColor = UIColor.blue
+        }
+        else{
+            header.textLabel?.textColor = UIColor.magenta        }
     }
 
 
