@@ -85,7 +85,7 @@ class AuthorTableViewController: UITableViewController, NSFetchedResultsControll
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "author_cell", for: indexPath)
         let author = fetchedResultsController.object(at: indexPath)
-        cell.textLabel?.text = author.firstname
+        cell.textLabel?.text = "\(author.firstname) \(author.lastname)"
         cell.detailTextLabel?.text = "Books: \(author.booksCount)"
         
         
